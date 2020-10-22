@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+    <!-- <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>Document</title>
+    <script src="https://unpkg.com/vue"></script>
+</head>
+<body>
+    <h1>Render_test</h1>
+    <div id="app">
+        {{message}}
+    </div>
+    <hr>
+    <!-- <input type="text" onInput="doAction(event);"> -->
+
+    <button onclick="doAct();">
+        おみくじを引く
+    </button>
+    <script>
+        var data ={
+            message: 'omikuji'
+        }
+        var app = new Vue({
+            el: '#app',
+            data: data,
+            render: (element)=>{
+                return element("p",data.message);
+            }
+        })
+    function doAct(){
+        data.message = '大吉';
+    }
+    function doAction(event){
+        data.message = event.target.value;
+    }
+    </script>
+</body>
+</html>
